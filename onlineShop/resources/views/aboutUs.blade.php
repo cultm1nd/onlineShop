@@ -15,14 +15,14 @@
         </div>
   
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">О нас</a></li>
-          <li><a href="#" class="nav-link px-2">Каталог</a></li>
-          <li><a href="#" class="nav-link px-2">Где нас найти?</a></li>
+          <li><a href="about" class="nav-link px-2 link-secondary">О нас</a></li>
+          <li><a href="katalog" class="nav-link px-2">Каталог</a></li>
+          <li><a href="where" class="nav-link px-2">Где нас найти?</a></li>
         </ul>
   
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2">Вход</button>
-          <button type="button" class="btn btn-primary">Регистрация</button>
+          <button type="button" class="btn btn-outline-primary me-2"><a href="login">Вход</a></button>
+          <button type="button" class="btn btn-primary"><a href="reg">Регистрация</a></button>
         </div>
       </header>
       <div class="new"><h1>Наши новинки</h1></div>
@@ -74,6 +74,15 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      <!--footer-->
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li><a href="about" class="nav-link px-2 link-secondary">О нас</a></li>
+          <li><a href="katalog" class="nav-link px-2">Каталог</a></li>
+          <li><a href="where" class="nav-link px-2">Где нас найти?</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2024 Copy Star</p>
+      </footer>
  </body>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </html>

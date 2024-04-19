@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/about', function () {return view('aboutUs');});
+Route::get('/katalog', function () {return view('katalog');});
+Route::get('/where', function () {return view('where');});
+Route::get('/korzina', function () {return view('korzina');});
 Route::get('/login', function () {return view('login');});
 Route::get('/reg', function () {return view('registration');});
 
@@ -50,5 +53,5 @@ Route::name('user.')->group(function()
     return view(view:'registration');
   })->name(name:'reg');
 
-  Route::post('/reg',[RegisterController::class, 'save']);
+  Route::post('/reg',[UserController::class, 'save']);
 });

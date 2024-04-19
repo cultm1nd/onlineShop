@@ -13,4 +13,12 @@ class Users extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+    protected $fillable = [
+        'name',
+        'surname',
+        'patronymic',
+        'email',
+        'login',
+        'password',
+    ];
 }
