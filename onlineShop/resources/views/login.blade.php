@@ -1,31 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Пример веб-страницы</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
- </head>
- <body>
-<form method="POST" action="{{route('user.login')}}">
-    <!--login-->
-    @csrf
-    <div class="form-group">
-      <label for="exampleInputEmail1">Логин</label>
-      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+@extends('Layout')
+@section('content')
+
+<div class="d-flex align-items-center py-4 bg-body-tertiary m-0 h-100">
+    <main class="form-signin w-50 m-auto p-5">
+  <form method="POST" action="{{URL::to('/login')}}">
+  @csrf
+    <h1 class="h3 mb-3 fw-normal">Войти | <a href="{{URL::to('/reg')}}">Регистрация</a></h1>
+
+    <div class="form-floating m-2">
+      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Логин</label>
     </div>
-    @error('email')
-    <div>{{$message}}</div>
-    @enderror
-     <!--password-->
-    <div class="form-group">
-      <label for="exampleInputPassword1">Пароль</label>
-      <input type="password" name="password" class="form-control" id="exampleInputPassword1" >
+    <div class="form-floating m-2">
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Пароль</label>
     </div>
-    @error('password')
-    <div>{{$message}}</div>
-    @enderror
-    <button type="submit" class="btn btn-primary">Войти</button>
+    <button class="btn btn-primary w-100 py-2 m-auto" type="submit">Войти</button>
   </form>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</html>
+    </main>
+</div>
+@endsection
+@show

@@ -1,48 +1,108 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Пример веб-страницы</title>
-  <link rel="stylesheet" href="app.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
- </head>
- <body>
-<form method="POST" action="<?php echo e(route('user.reg')); ?>">
-  <?php echo csrf_field(); ?>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Имя</label>
-      <input type="text" name="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+<?php $__env->startSection('content'); ?>
+<div class="d-flex align-items-center py-4 bg-body-tertiary m-0 h-100">
+    <main class="form-signin w-50 m-auto p-5">
+  <form method="POST" action="<?php echo e(URL::to('/register')); ?>" onsubmit="event.preventDefault(); Validate();">
+    <?php echo csrf_field(); ?>
+    <h1 class="h3 mb-3 fw-normal">Регистрация<a href="<?php echo e(URL::to('/login')); ?>">Войти</a></h1>
+    <div class="form-floating m-2">
+      <input class="form-control" id="floatingInput surname" placeholder="Surname" name="surname">
+      <label for="floatingInput">Фамилия</label>
+      <?php $__errorArgs = ['surname'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+          <p><?php echo e($message); ?></p>
+      <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
     </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Фамилия</label>
-        <input type="text" name="secondName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Отчество</label>
-        <input type="text" name="thirdName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Логин</label>
-        <input type="text" name="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Электронная почта</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Пароль</label>
-        <input type="password" name="firstPas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Повторите пароль</label>
-        <input type="password" name="secondPas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Согласен с правилами регистрации</label>
+    <div class="form-floating m-2">
+      <input class="form-control" id="floatingInput name" placeholder="Name" name="name">
+      <label for="floatingInput">Имя</label>
+      <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+          <p><?php echo e($message); ?></p>
+      <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
     </div>
-    <button type="submit" name="sogl" class="btn btn-primary">Зарегестрироваться</button>
+    <div class="form-floating m-2">
+      <input class="form-control" id="floatingInput" placeholder="Patronymic" name="patr">
+      <label for="floatingInput">Отчество</label>
+      <?php $__errorArgs = ['patr'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+          <p><?php echo e($message); ?></p>
+      <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+    </div>
+    <div class="form-floating m-2">
+      <input class="form-control" id="floatingInput login" placeholder="Login" name="login">
+      <label for="floatingInput">Логин</label>
+      <?php $__errorArgs = ['login'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+          <p><?php echo e($message); ?></p>
+      <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+    </div>
+    <div class="form-floating m-2">
+      <input type="email" class="form-control" id="floatingInput email" placeholder="name@example.com" name="email">
+      <label for="floatingInput">Электронная почта</label>
+      <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+          <p><?php echo e($message); ?></p>
+      <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+    </div>
+    <div class="form-floating m-2">
+      <input type="password" class="form-control password" id="floatingPassword " placeholder="Password" name="password">
+      <label for="floatingPassword">Пароль</label>
+      <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+          <p><?php echo e($message); ?></p>
+      <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+    </div>
+    <div class="form-floating m-2">
+      <input type="password" class="form-control rpassword" id="floatingPassword d" placeholder="Password" name="password_repeat">
+      <label for="floatingPassword">Повторите пароль</label>
+    </div>
+    <div class="m-2">
+        <input type="checkbox" class=" rules" id="floatingPassword" name="rules">
+      <label for="floatingPassword">Согласен с правилами</label>
+    </div>
+    <button class="btn btn-primary w-100 py-2 m-auto" type="submit">Готово</button>
   </form>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</html><?php /**PATH C:\OSPanel\domains\borovinskikh\tests\onlineShop\resources\views/registration.blade.php ENDPATH**/ ?>
+    </main>
+</div>
+<script src="../public/signUp.js">
+<?php $__env->stopSection(); ?>
+<?php echo $__env->yieldSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\OSPanel\domains\borovinskikh\tests\onlineShop\resources\views/registration.blade.php ENDPATH**/ ?>
